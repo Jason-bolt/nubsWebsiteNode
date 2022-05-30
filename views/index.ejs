@@ -1,0 +1,263 @@
+<%- include('./layouts/_header.ejs') %>
+<!-- Carousel -->
+<section>
+	<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-inner">
+			<% bannerImages.forEach((bannerImage, index) => { %>
+                <% if (index == 0) { %>
+                    <div class="carousel-item active">
+                <% }else{ %>
+                    <div class="carousel-item">
+                <% }%> 
+                    <img src="<%= bannerImage.image %>" class="d-block w-100" alt="1" />
+                </div>
+            <% }) %> 
+		</div>
+		<button
+			class="carousel-control-prev"
+			type="button"
+			data-bs-target="#bannerCarousel"
+			data-bs-slide="prev"
+		>
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button
+			class="carousel-control-next"
+			type="button"
+			data-bs-target="#bannerCarousel"
+			data-bs-slide="next"
+		>
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+</section>
+
+<section
+	style="background-color: rgb(11, 37, 119)"
+	class="container p-1 rounded-bottom"
+></section>
+
+<!-- Welcome Address -->
+<section class="p-sm-5 my-3 my-sm-0">
+	<div class="container">
+		<p class="display-3">Welcome To NUBS UCC</p>
+		<p>
+			The National Union of Baptist Students (NUBS) is a Christian students'
+			organization comprising of Local Baptist Student Unions. The NUBS is a
+			recognized auxiliary of the Ghana Baptist Convention (GBC) The motto of
+			NUBS is “Presenting everyman perfect in Christ” as captured in Colossians
+			1:28b in the HOLY BIBLE. The slogan of NUBS is “Empowered!! For Action!!!”
+			The Union is divided into four geographical zones for easy coordination.
+			The Union has four zones namely; Northern Zone Comprising Northern, Upper
+			East and Upper West regions. Middle Zone comprising Brong Ahafo and
+			Ashanti regions. Southern Zone A comprising Greater Accra, Eastern and
+			Volta region. Southern Zone B comprising Western and Central regions.
+		</p>
+		<a href="/about" class="btn btn-nubsBlue px-4 py-2">Learn More</a>
+	</div>
+</section>
+
+<!-- Horizontal line -->
+<hr class="w-50 m-auto" style="background-color: rgb(3, 23, 83)" />
+
+<!-- Vision and Mission Section -->
+<section class="p-sm-5 py-5">
+	<div class="container text-center">
+		<div class="d-md-flex align-items-center justify-content-between">
+			<div class="px-sm-5 mb-md-none">
+				<!-- Mission statement -->
+				<p class="display-4">Our Mission</p>
+				<p class="lead">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+					inventore ad quam saepe sit porro mollitia perspiciatis sapiente, quos
+					fugiat molestias, quas cupiditate adipisci sed quibusdam. Dignissimos
+					odit soluta possimus!
+				</p>
+			</div>
+
+			<div class="px-sm-5">
+				<!-- Vision statement -->
+				<p class="display-4">Our Vission</p>
+				<p class="lead">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+					inventore ad quam saepe sit porro mollitia perspiciatis sapiente, quos
+					fugiat molestias, quas cupiditate adipisci sed quibusdam. Dignissimos
+					odit soluta possimus!
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Prayer Request -->
+<section
+	class="py-5 p-sm-5 text-white"
+	style="background-color: rgb(3, 23, 83)"
+>
+	<div class="container text-start">
+		<div class="d-md-flex justify-content-between align-items-center">
+			<div class="col-md px-3 mb-4 mb-md-0">
+				<p class="h3">HAVE A PRAYER REQUEST ?</p>
+				<form action="#" method="post" class="form">
+					<div class="form-group">
+						<textarea
+							name="prayer_request"
+							id="prayer_request"
+							rows="3"
+							class="form-control"
+							placeholder="Type in your prayer request here..."
+						></textarea>
+					</div>
+					<input
+						type="submit"
+						class="btn mt-3 text-white"
+						value="Send Request"
+						style="background-color: red"
+					/>
+				</form>
+			</div>
+			<div class="col-md px-sm-3">
+				Do you or a loved one need prayers? You're not alone, we all need
+				prayers! We would love to pray for you or someone you care for. Please
+				feel free to fill out the Prayer Request form. Remember, God is with you
+				and He delights when we lift our voices and give our worries over to
+				Him. Jesus Christ did not turn down the faithful. He healed the sick and
+				He continues to heal today. Jesus wants to work in your life. Remember
+				He wants something for you not something from you.
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Weekly Activities -->
+<section class="p-sm-5 pt-5 mt-3 mt-sm-0 pt-sm-0">
+	<div class="container text-center">
+		<h1 class="pt-5 pb-5">Weekly Activities</h1>
+		<div class="row g-4">
+			<% weeklyActivities.forEach(weeklyActivity => { %>
+				<div class="col-sm-6 col-lg-4">
+					<div class="card shadow">
+						<img src="<%= weeklyActivity.image %>" alt="sunday" class="card-img-top" />
+						<div class="card-body">
+							<div class="card-title my-3 h3"><%= weeklyActivity.serviceName %></div>
+							<div class="card-text">
+								<p class="mb-0"><strong>Day:</strong> Sunday</p>
+								<p class="mb-0"><strong>Time:</strong> 8:00am to 11:30pm</p>
+								<p class="mb-0"><strong>Location:</strong> Assembly Hall</p>
+							</div>
+						</div>
+					</div>
+				</div>	
+			<% }) %> 
+			
+		</div>
+
+		<!-- Button for more events -->
+		<a href="/news-events" class="btn btn-nubsBlue px-4 py-2 mt-5">
+			View all events <i class="bi bi-chevron-right"></i>
+		</a>
+	</div>
+</section>
+
+<!-- Testimonies -->
+<section class="pb-5 pt-5 my-5 pt-sm-0 my-sm-0">
+	<div class="container p-sm-5 text-center">
+		<h1 class="mt-2 mb-5">Testimonies</h1>
+
+		<div class="row ms-auto">
+			<div class="col-md-6 m-auto">
+				<div id="testimonies" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-inner">
+						<% testimonies.forEach((testimony, index) => { %>
+                            <% if (index == 0) {%>
+                                <div class="carousel-item active">
+                            <% }else{ %> 
+						        <div class="carousel-item">
+							<% } %>
+							<div class="text-center">
+								<img
+									src="<%= testimony.image %>"
+									alt="executive"
+									class="rounded-circle"
+								/>
+								<h5 class="my-2"><%= testimony.name %></h5>
+								<p><%= testimony.testimony %></p>
+							</div>
+						</div>
+						<% }) %>
+						<button
+							class="carousel-control-prev"
+							type="button"
+							data-bs-target="#testimonies"
+							data-bs-slide="prev"
+						>
+							<span
+								class="carousel-control-prev-icon"
+								aria-hidden="true"
+							></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button
+							class="carousel-control-next"
+							type="button"
+							data-bs-target="#testimonies"
+							data-bs-slide="next"
+						>
+							<span
+								class="carousel-control-next-icon"
+								aria-hidden="true"
+							></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Upcoming Events -->
+<section>
+	<div class="container p-sm-5">
+		<h1>Up Coming Events</h1>
+	</div>
+
+	<div id="events" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="/images/carousel2.jpg" class="d-block w-100" alt="1" />
+			</div>
+			<div class="carousel-item">
+				<img src="/images/carousel3.jpg" class="d-block w-100" alt="2" />
+			</div>
+			<div class="carousel-item">
+				<img src="/images/carousel4.jpg" class="d-block w-100" alt="3" />
+			</div>
+			<div class="carousel-item">
+				<img src="/images/carousel1.jpg" class="d-block w-100" alt="4" />
+			</div>
+		</div>
+		<button
+			class="carousel-control-prev"
+			type="button"
+			data-bs-target="#events"
+			data-bs-slide="prev"
+		>
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button
+			class="carousel-control-next"
+			type="button"
+			data-bs-target="#events"
+			data-bs-slide="next"
+		>
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+</section>
+
+<%- include('./layouts/_footer.ejs') %>

@@ -1,0 +1,23 @@
+/* body {
+  font-family: "Roboto", sans-serif;
+} */
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel-container .carousel-text {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  max-width: 70vw;
+}
+
+.btn-nubsBlue {
+  background-color: rgb(3, 23, 83);
+  color: white;
+}
+
+.btn-nubsBlue:hover {
+  color: rgb(225, 209, 255);
+}
