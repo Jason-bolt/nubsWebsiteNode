@@ -55,31 +55,32 @@ router.get("/", (req, res) => {
 		testimonies: testimonies,
 		bannerImages: bannerImages,
 		weeklyActivities: weeklyActivities,
+		page: "home",
 	});
 });
 
 router.get("/about", (req, res) => {
-	res.render("about");
+	res.render("about", { page: "about" });
 });
 
 router.get("/news-events", (req, res) => {
-	res.render("news-events");
+	res.render("news-events", { page: "news-events" });
 });
 
 router.get("/gallery", (req, res) => {
-	res.render("gallery");
+	res.render("gallery", { page: "gallery" });
 });
 
 router.get("/departments", (req, res) => {
-	res.render("departments");
+	res.render("departments", { page: "departments" });
 });
 
 router.get("/executives", (req, res) => {
-	res.render("executives");
+	res.render("executives", { page: "executives" });
 });
 
 router.get("/contact", (req, res) => {
-	res.render("contact");
+	res.render("contact", { page: "contact" });
 });
 
 module.exports = router;
