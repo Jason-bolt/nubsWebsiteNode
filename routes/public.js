@@ -34,21 +34,21 @@ router.get("/", (req, res) => {
 			serviceName: "Sunday Service",
 			day: "Sunday",
 			time: "8:00am to 11:30pm",
-			Location: "Assembly Hall",
+			location: "Assembly Hall",
 		},
 		{
 			image: "/images/pic1.jpeg",
 			serviceName: "Prayer Force",
 			day: "Tuesday",
 			time: "7:00pm to 8:30pm",
-			Location: "New Life Baptist Church",
+			location: "New Life Baptist Church",
 		},
 		{
 			image: "/images/pic1.jpeg",
 			serviceName: "Midweek Service",
 			day: "Thursday",
 			time: "6:30am to 8:00pm",
-			Location: "New Life Baptist Church",
+			location: "New Life Baptist Church",
 		},
 	];
 	res.render("index", {
