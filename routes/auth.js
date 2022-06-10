@@ -10,4 +10,8 @@ router.get("/register", (req, res) => {
 	res.render("register");
 });
 
+router.get("/forgot_password", (req, res) => {
+	res.render("forgot_password");
+});
+
 module.exports = router;
