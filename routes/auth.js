@@ -9,7 +9,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/register", (req, res) => {
-	res.render("register");
+	res.render("register", { message: null, success: null });
 });
 
 router.get("/forgot_password", (req, res) => {

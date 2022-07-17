@@ -42,6 +42,18 @@
 							<div class="card-title fs-3 text-center pt-2">
 								<strong>Register Admin</strong>
 							</div>
+
+							<!-- Validation message -->
+							<% if (message){ %>
+							<div
+								class="<%= success == true ? 'bg-success' : 'bg-danger' %> py-3 container text-center text-white"
+							>
+								<%= message %>
+							</div>
+							<% } %>
+
+							<!-- ./Validation message -->
+
 							<div class="card-body">
 								<form method="POST" action="/register">
 									<div class="form-group">
