@@ -1,4 +1,5 @@
 const express = require("express");
+
 // Import authentication controller
 const authController = require("../controllers/auth");
 
@@ -9,7 +10,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/register", (req, res) => {
-	res.render("register", { message: null, success: null });
+	res.render("register", { alerts: null, success: null });
 });
 
 router.get("/forgot_password", (req, res) => {

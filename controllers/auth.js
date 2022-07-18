@@ -2,8 +2,33 @@ const pool = require("../database/connection");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
+// Validation
+const Joi = require("joi");
+const { render } = require("ejs");
+const registerSchema = Joi.object({
+	first_name: Joi.string().required(),
+	last_name: Joi.string().required(),
+	email: Joi.string().email().lowercase().required(),
+	password: Joi.string()
+		.min(8)
+		.max(20)
+		.required()
+		.messages({ "any.required": "Passwords do not match" }),
+	password_confirm: Joi.ref("password"),
+});
+
 exports.register = (req, res) => {
 	const { first_name, last_name, email, password, password_confirm } = req.body;
+
+	const { error, value } = registerSchema.validate(req.body, {
+		abortEarly: false,
+	});
+
+	if (error) {
+		console.log(error);
+		// return res.send(error.details);
+		return res.render("register", { alerts: error.details, success: null });
+	}
 
 	// Check if user is already registered
 	pool.query(
@@ -20,12 +45,6 @@ exports.register = (req, res) => {
 				if (results.length > 0) {
 					return res.render("register", {
 						message: "That email is already in use",
-					});
-					// Check if passwords match
-				} else if (password !== password_confirm) {
-					return res.render("register", {
-						message: "Passwords do not match",
-						success: false,
 					});
 				}
 

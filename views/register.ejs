@@ -44,13 +44,20 @@
 							</div>
 
 							<!-- Validation message -->
-							<% if (message){ %>
+							<% if (alerts != null){ %> <% alerts.forEach((alert) => { %>
 							<div
-								class="<%= success == true ? 'bg-success' : 'bg-danger' %> py-3 container text-center text-white"
+								class="alert <%= success != null ? 'alert-success' : 'alert-warning' %> alert-dismissible fade show"
+								role="alert"
 							>
-								<%= message %>
+								<%= alert.message %>
+								<button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="alert"
+									aria-label="Close"
+								></button>
 							</div>
-							<% } %>
+							<% }) %> <% } %>
 
 							<!-- ./Validation message -->
 
