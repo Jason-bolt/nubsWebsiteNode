@@ -48,7 +48,7 @@ exports.register = (req, res) => {
 					});
 				}
 
-				let hashedPassword = await bcrypt.hash(password, 8);
+				let hashedPassword = await bcrypt.hash(password, 10);
 				// console.log(hashedPassword);
 
 				// Insert values in the database
