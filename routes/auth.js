@@ -20,4 +20,6 @@ router.get("/forgot_password", (req, res) => {
 // Working with parsed data
 router.post("/register", authController.register);
 
+router.post("/login", authController.login);
+
 module.exports = router;

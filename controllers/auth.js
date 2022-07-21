@@ -21,7 +21,7 @@ const registerSchema = Joi.object({
 // Login Schema
 const loginSchema = Joi.object({
 	email: Joi.string().email().lowercase().required(),
-	password: Joi.string().min(8).max(20).required(),
+	password: Joi.string().required(),
 });
 
 // Registeration codes
@@ -101,4 +101,27 @@ exports.login = (req, res) => {
 		// return res.send(error.details);
 		return res.render("login", { alerts: error.details, success: null });
 	}
+
+	// Check if user exsits in the database
+	pool.query(
+		"SELECT * FROM admins WHERE email = ?",
+		[email],
+		(errors, results) => {
+			if (errors) {
+				console.log(errors);
+				return;
+			} else {
+				// console.log(results);
+
+				// No user was found in the database
+				if (results.length == 0) {
+					console.log("No user found!");
+					return res.render("login", {
+						alerts: [{ message: "Invalid admin credentials!" }],
+						success: null,
+					});
+				}
+			}
+		}
+	);
 };
