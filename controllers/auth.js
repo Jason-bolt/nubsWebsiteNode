@@ -44,12 +44,13 @@ exports.register = (req, res) => {
 				// Check number of entries in the result
 				if (results.length > 0) {
 					return res.render("register", {
-						message: "That email is already in use",
+						alerts: [{ message: "That email is already in use" }],
+						success: null,
 					});
 				}
 
 				let hashedPassword = await bcrypt.hash(password, 10);
-				// console.log(hashedPassword);
+				console.log(hashedPassword);
 
 				// Insert values in the database
 				pool.query(
@@ -66,7 +67,7 @@ exports.register = (req, res) => {
 						} else {
 							console.log(results);
 							return res.render("register", {
-								message: "User registered",
+								alerts: [{ message: "User registered" }],
 								success: true,
 							});
 						}
