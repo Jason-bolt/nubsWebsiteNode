@@ -24,6 +24,7 @@ const loginSchema = Joi.object({
 	password: Joi.string().min(8).max(20).required(),
 });
 
+// Registeration codes
 exports.register = (req, res) => {
 	const { first_name, last_name, email, password, password_confirm } = req.body;
 
@@ -73,7 +74,7 @@ exports.register = (req, res) => {
 							console.log(error);
 						} else {
 							console.log(results);
-							return res.render("register", {
+							return res.render("login", {
 								alerts: [{ message: "User registered" }],
 								success: true,
 							});
@@ -85,4 +86,19 @@ exports.register = (req, res) => {
 			}
 		}
 	);
+};
+
+// Login codes
+exports.login = (req, res) => {
+	const { email, password } = req.body;
+
+	const { error, value } = loginSchema.validate(req.body, {
+		abortEarly: false,
+	});
+
+	if (error) {
+		console.log(error);
+		// return res.send(error.details);
+		return res.render("login", { alerts: error.details, success: null });
+	}
 };
