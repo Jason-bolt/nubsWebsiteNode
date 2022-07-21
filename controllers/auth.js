@@ -2,9 +2,10 @@ const pool = require("../database/connection");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-// Validation
+// Joy validation
 const Joi = require("joi");
-const { render } = require("ejs");
+
+// Registration Schema
 const registerSchema = Joi.object({
 	first_name: Joi.string().required(),
 	last_name: Joi.string().required(),
@@ -15,6 +16,12 @@ const registerSchema = Joi.object({
 		.required()
 		.messages({ "any.required": "Passwords do not match" }),
 	password_confirm: Joi.ref("password"),
+});
+
+// Login Schema
+const loginSchema = Joi.object({
+	email: Joi.string().email().lowercase().required(),
+	password: Joi.string().min(8).max(20).required(),
 });
 
 exports.register = (req, res) => {

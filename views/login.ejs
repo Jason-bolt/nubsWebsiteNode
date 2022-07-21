@@ -42,6 +42,25 @@
 							<div class="card-title fs-3 text-center pt-2">
 								<strong>Admin Login</strong>
 							</div>
+
+							<!-- Validation message -->
+							<% if (alerts != null){ %> <% alerts.forEach((alert) => { %>
+							<div
+								class="alert <%= success != null ? 'alert-success' : 'alert-warning' %> alert-dismissible fade show"
+								role="alert"
+							>
+								<%= alert.message %>
+								<button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="alert"
+									aria-label="Close"
+								></button>
+							</div>
+							<% }) %> <% } %>
+
+							<!-- ./Validation message -->
+
 							<div class="card-body">
 								<form>
 									<div class="form-group mt-2">

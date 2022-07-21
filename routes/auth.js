@@ -6,7 +6,7 @@ const authController = require("../controllers/auth");
 const router = express.Router();
 
 router.get("/login", (req, res) => {
-	res.render("login");
+	res.render("login", { alerts: null, success: null });
 });
 
 router.get("/register", (req, res) => {

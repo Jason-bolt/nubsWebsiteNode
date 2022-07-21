@@ -62,13 +62,18 @@
 							<!-- ./Validation message -->
 
 							<div class="card-body">
-								<form method="POST" action="/register">
+								<form
+									method="POST"
+									action="/register"
+									onsubmit="return validateForm()"
+								>
 									<div class="form-group">
 										<label for="first_name" class="lead">First Name</label>
 										<input
 											type="text"
 											class="form-control"
 											name="first_name"
+											id="first_name"
 											required
 										/>
 									</div>
@@ -78,6 +83,7 @@
 											type="text"
 											class="form-control"
 											name="last_name"
+											id="last_name"
 											required
 										/>
 									</div>
@@ -87,6 +93,7 @@
 											type="email"
 											class="form-control"
 											name="email"
+											id="email"
 											required
 										/>
 									</div>
@@ -96,6 +103,7 @@
 											type="password"
 											class="form-control"
 											name="password"
+											id="password"
 											required
 										/>
 									</div>
@@ -107,6 +115,7 @@
 											type="password"
 											class="form-control"
 											name="password_confirm"
+											id="password_confirm"
 											required
 										/>
 									</div>
@@ -125,4 +134,23 @@
 			</div>
 		</section>
 	</body>
+
+	<script>
+		function validateForm() {
+			const first_name = document.getElementById("first_name").value;
+			const last_name = document.getElementById("last_name").value;
+			const email = document.getElementById("email").value;
+
+			if (
+				first_name.trim() == "" ||
+				last_name.trim() == "" ||
+				email.trim() == ""
+			) {
+				alert("All fields are required!");
+				return false;
+			}
+
+			return true;
+		}
+	</script>
 </html>
