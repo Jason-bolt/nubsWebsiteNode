@@ -62,7 +62,11 @@
 							<!-- ./Validation message -->
 
 							<div class="card-body">
-								<form>
+								<form
+									method="POST"
+									action="/login"
+									onsubmit="return validateForm()"
+								>
 									<div class="form-group mt-2">
 										<label for="email" class="lead">Email</label>
 										<input
@@ -104,4 +108,16 @@
 			</div>
 		</section>
 	</body>
+	<script>
+		function validateForm() {
+			const email = document.getElementById("email").value;
+
+			if (email.trim() == "") {
+				alert("Email field is required!");
+				return false;
+			}
+
+			return true;
+		}
+	</script>
 </html>
