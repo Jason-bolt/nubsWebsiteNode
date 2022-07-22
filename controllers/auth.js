@@ -1,6 +1,8 @@
 const pool = require("../database/connection");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 
 // Joy validation
 const Joi = require("joi");
@@ -137,10 +139,10 @@ exports.login = (req, res) => {
 								// Passwords match
 								if (result) {
 									console.log("Passwords match, login success");
-									return res.render("login", {
-										alerts: [{ message: "Passwords match, login success" }],
-										success: true,
-									});
+									req.session.admin_id = results[0].id;
+									req.session.email = results[0].email;
+									req.session.save();
+									return res.redirect("admin/weekly_activities");
 								} else {
 									console.log("Passwords do not match, login failed");
 									return res.render("login", {

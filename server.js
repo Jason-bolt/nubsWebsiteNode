@@ -14,6 +14,7 @@ const adminRouter = require("./routes/admin");
 
 const flash = require("express-flash");
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const passport = require("passport");
 
 // To support sending with POST
@@ -31,6 +32,7 @@ app.use(
 		saveUninitialized: false,
 	})
 );
+app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 

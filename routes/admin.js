@@ -1,25 +1,53 @@
 const express = require("express");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 
 const router = express.Router();
 
 router.get("/weekly_activities", (req, res) => {
-	res.render("admin/weekly_activities");
+	// res.send(req.session);
+	if (req.session.admin_id == undefined) {
+		res.redirect("/login");
+	} else {
+		res.render("admin/weekly_activities");
+	}
 });
 
 router.get("/news-events", (req, res) => {
-	res.render("admin/news_events");
+	if (req.session.admin_id == undefined) {
+		res.redirect("/login");
+	} else {
+		res.render("admin/news_events");
+	}
 });
 
 router.get("/testimonies", (req, res) => {
-	res.render("admin/testimonies");
+	if (req.session.admin_id == undefined) {
+		res.redirect("/login");
+	} else {
+		res.render("admin/testimonies");
+	}
 });
 
 router.get("/gallery", (req, res) => {
-	res.render("admin/gallery");
+	if (req.session.admin_id == undefined) {
+		res.redirect("/login");
+	} else {
+		res.render("admin/gallery");
+	}
 });
 
 router.get("/executives", (req, res) => {
-	res.render("admin/executives");
+	if (req.session.admin_id == undefined) {
+		res.redirect("/login");
+	} else {
+		res.render("admin/executives");
+	}
+});
+
+router.post("/logout", (req, res) => {
+	req.session.destroy();
+	res.render("login");
 });
 
 module.exports = router;
