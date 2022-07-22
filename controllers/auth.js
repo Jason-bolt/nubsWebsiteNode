@@ -141,12 +141,11 @@ exports.login = (req, res) => {
 									console.log("Passwords match, login success");
 									req.session.admin_id = results[0].id;
 									req.session.email = results[0].email;
-									// req.session.save();
 									return res.redirect("admin/weekly_activities");
 								} else {
 									console.log("Passwords do not match, login failed");
 									return res.render("login", {
-										alerts: [{ message: "Passwords match, login failed" }],
+										alerts: [{ message: "Invalid admin credentials!" }],
 										success: null,
 									});
 								}
