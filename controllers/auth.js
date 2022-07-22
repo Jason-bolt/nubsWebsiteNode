@@ -106,21 +106,54 @@ exports.login = (req, res) => {
 	pool.query(
 		"SELECT * FROM admins WHERE email = ?",
 		[email],
-		(errors, results) => {
-			if (errors) {
-				console.log(errors);
-				return;
-			} else {
-				// console.log(results);
+		async (errors, results, fields) => {
+			try {
+				if (errors) {
+					console.log(errors);
+					return;
+				} else {
+					// console.log(results);
 
-				// No user was found in the database
-				if (results.length == 0) {
-					console.log("No user found!");
-					return res.render("login", {
-						alerts: [{ message: "Invalid admin credentials!" }],
-						success: null,
-					});
+					// No user was found in the database
+					if (results.length == 0) {
+						console.log("No user found!");
+						return res.render("login", {
+							alerts: [{ message: "Invalid admin credentials!" }],
+							success: null,
+						});
+					} else {
+						// admin = JSON.parse(JSON.stringify(results))[0];
+						// console.log(admin.password);
+						// A user was found, now check if passwords match
+						await bcrypt.compare(
+							password,
+							results[0].password,
+							(err, result) => {
+								if (err) {
+									console.log(err);
+									return;
+								}
+
+								// Passwords match
+								if (result) {
+									console.log("Passwords match, login success");
+									return res.render("login", {
+										alerts: [{ message: "Passwords match, login success" }],
+										success: true,
+									});
+								} else {
+									console.log("Passwords do not match, login failed");
+									return res.render("login", {
+										alerts: [{ message: "Passwords match, login failed" }],
+										success: null,
+									});
+								}
+							}
+						);
+					}
 				}
+			} catch (error) {
+				console.log(error);
 			}
 		}
 	);
