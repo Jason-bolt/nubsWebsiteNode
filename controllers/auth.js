@@ -141,7 +141,7 @@ exports.login = (req, res) => {
 									console.log("Passwords match, login success");
 									req.session.admin_id = results[0].id;
 									req.session.email = results[0].email;
-									req.session.save();
+									// req.session.save();
 									return res.redirect("admin/weekly_activities");
 								} else {
 									console.log("Passwords do not match, login failed");

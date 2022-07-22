@@ -47,7 +47,7 @@ router.get("/executives", (req, res) => {
 
 router.post("/logout", (req, res) => {
 	req.session.destroy();
-	res.render("login");
+	res.redirect("/login");
 });
 
 module.exports = router;
