@@ -7,74 +7,76 @@
 
 	<div class="container">
 		<div class="row">
-			<div>
-				<img src="/images/carousel2.jpg" alt="1" class="img-fluid" />
-
-				<div class="card-body">
-					<h3>Event name</h3>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam vel
-					quod mollitia vero blanditiis quaerat laborum ad in commodi veniam
-					obcaecati dignissimos expedita sint, deserunt id sapiente qui est?
-					Amet.
-				</div>
-
-				<div class="card-footer bg-white">
-					<a href="#" class="btn btn-danger">
-						Delete <i class="bi bi-trash"></i>
-					</a>
-				</div>
-			</div>
+			<% events.forEach(event => { %>
 			<div class="mt-5">
-				<img src="/images/carousel3.jpg" alt="1" class="img-fluid" />
+				<img src="/images/<%= event.image %>" alt="1" class="img-fluid" />
 
 				<div class="card-body">
-					<h3>Event name</h3>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam vel
-					quod mollitia vero blanditiis quaerat laborum ad in commodi veniam
-					obcaecati dignissimos expedita sint, deserunt id sapiente qui est?
-					Amet.
+					<h3><%= event.name %></h3>
+					<%= event.details %>
 				</div>
 
 				<div class="card-footer bg-white">
+					<button
+						type="button"
+						class="btn btn-secondary"
+						data-bs-toggle="modal"
+						data-bs-target="#editEvent<%= event.id %>"
+					>
+						Edit <i class="bi bi-pen"></i>
+					</button>
+
 					<a href="#" class="btn btn-danger">
 						Delete <i class="bi bi-trash"></i>
 					</a>
 				</div>
 			</div>
-			<div class="mt-5">
-				<img src="/images/carousel4.jpg" alt="1" class="img-fluid" />
 
-				<div class="card-body">
-					<h3>Event name</h3>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam vel
-					quod mollitia vero blanditiis quaerat laborum ad in commodi veniam
-					obcaecati dignissimos expedita sint, deserunt id sapiente qui est?
-					Amet.
-				</div>
+			<!-- Edit event modal -->
+			<div class="modal fade" id="editEvent<%= event.id %>" tabindex="-1">
+				<div class="modal-dialog modal-fullscreen">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Edit Event</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							<form action="#" enctype="multipart/form-data">
+								<div class="form-group">
+									<label for="event_flier" class="lead"> Event Flier </label>
 
-				<div class="card-footer bg-white">
-					<a href="#" class="btn btn-danger">
-						Delete <i class="bi bi-trash"></i>
-					</a>
+									<input
+										type="file"
+										accept="image/*"
+										name="event_flier"
+										class="form-control"
+									/>
+								</div>
+
+								<div class="form-group mt-3">
+									<label for="event_details">Event Details</label>
+									<textarea
+										name="event_details"
+										id="event_details"
+										rows="10"
+										class="form-control"
+									></textarea>
+								</div>
+
+								<button class="btn btn-nubsBlue mt-3 px-3 rounded-pill">
+									Save
+								</button>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="mt-5">
-				<img src="/images/carousel1.jpg" alt="1" class="img-fluid" />
-
-				<div class="card-body">
-					<h3>Event name</h3>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam vel
-					quod mollitia vero blanditiis quaerat laborum ad in commodi veniam
-					obcaecati dignissimos expedita sint, deserunt id sapiente qui est?
-					Amet.
-				</div>
-
-				<div class="card-footer bg-white">
-					<a href="#" class="btn btn-danger">
-						Delete <i class="bi bi-trash"></i>
-					</a>
-				</div>
-			</div>
+			<% }) %>
 		</div>
 
 		<button
