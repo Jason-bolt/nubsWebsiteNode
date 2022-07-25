@@ -5,21 +5,32 @@
 	<div class="container text-center">
 		<h1 class="pt-5 pb-5">Weekly Activities</h1>
 		<div class="row g-4">
+			<!-- Loop through the activities -->
+			<% activities.forEach(activity => { %>
 			<div class="col-sm-6 col-lg-4">
 				<div class="card shadow">
-					<img src="/images/pic1.jpeg" alt="sunday" class="card-img-top" />
+					<img
+						src="/images/<%= activity.image %> "
+						alt="sunday"
+						class="card-img-top"
+					/>
 					<div class="card-body">
-						<div class="card-title my-3 h3">Sunday Service</div>
+						<div class="card-title my-3 h3"><%= activity.service %></div>
 						<div class="card-text">
-							<p class="mb-0"><strong>Day:</strong> Sunday</p>
-							<p class="mb-0"><strong>Time:</strong> 8:00am to 11:30pm</p>
-							<p class="mb-0"><strong>Location:</strong> Assembly Hall</p>
+							<p class="mb-0"><strong>Day:</strong> <%= activity.day %></p>
+							<p class="mb-0">
+								<strong>Time:</strong> <%= activity.start_time %> to <%=
+								activity.end_time %>
+							</p>
+							<p class="mb-0">
+								<strong>Location:</strong> <%= activity.location %>
+							</p>
 						</div>
 						<div class="card-footer pb-0">
 							<button
 								class="btn btn-success"
 								type="button"
-								data-bs-target="#wa1"
+								data-bs-target="#wa<%= activity.id %>"
 								data-bs-toggle="modal"
 							>
 								Edit <i class="bi bi-pencil-square"></i>
@@ -30,7 +41,7 @@
 			</div>
 
 			<!-- Modal -->
-			<div class="modal fade" id="wa1" tabindex="-1">
+			<div class="modal fade" id="wa<%= activity.id %>" tabindex="-1">
 				<div class="modal-dialog modal-fullscreen-md-down">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -154,53 +165,7 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="col-sm-6 col-lg-4">
-				<div class="card shadow">
-					<img src="/images/pic1.jpeg" alt="sunday" class="card-img-top" />
-					<div class="card-body">
-						<div class="card-title my-3 h3">Prayer Force</div>
-						<div class="card-text">
-							<p class="mb-0"><strong>Day:</strong> Monday</p>
-							<p class="mb-0"><strong>Time:</strong> 7:00pm to 8:30pm</p>
-							<p class="mb-0"><strong>Location:</strong> Casford Feild</p>
-						</div>
-						<div class="card-footer pb-0">
-							<button
-								class="btn btn-success"
-								type="button"
-								data-bs-target="#wa1"
-								data-bs-toggle="modal"
-							>
-								Edit <i class="bi bi-pencil-square"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-lg-4">
-				<div class="card shadow">
-					<img src="/images/pic1.jpeg" alt="sunday" class="card-img-top" />
-					<div class="card-body">
-						<div class="card-title my-3 h3">Midweek Service</div>
-						<div class="card-text">
-							<p class="mb-0"><strong>Day:</strong> Thursday</p>
-							<p class="mb-0"><strong>Time:</strong> 6:30pm to 8:00pm</p>
-							<p class="mb-0"><strong>Location:</strong> New Life Baptist</p>
-						</div>
-						<div class="card-footer pb-0">
-							<button
-								class="btn btn-success"
-								type="button"
-								data-bs-target="#wa1"
-								data-bs-toggle="modal"
-							>
-								Edit <i class="bi bi-pencil-square"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
+			<% }) %>
 		</div>
 	</div>
 </section>
