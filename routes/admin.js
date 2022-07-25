@@ -9,7 +9,7 @@ router.get("/weekly_activities", (req, res) => {
 	if (req.session.admin_id == undefined) {
 		res.redirect("/login");
 	} else {
-		res.render("admin/weekly_activities");
+		res.render("admin/weekly_activities", { page: "weekly_activities" });
 	}
 });
 
@@ -17,7 +17,7 @@ router.get("/news-events", (req, res) => {
 	if (req.session.admin_id == undefined) {
 		res.redirect("/login");
 	} else {
-		res.render("admin/news_events");
+		res.render("admin/news_events", { page: "news" });
 	}
 });
 
@@ -25,7 +25,7 @@ router.get("/testimonies", (req, res) => {
 	if (req.session.admin_id == undefined) {
 		res.redirect("/login");
 	} else {
-		res.render("admin/testimonies");
+		res.render("admin/testimonies", { page: "testimonies" });
 	}
 });
 
@@ -33,7 +33,7 @@ router.get("/gallery", (req, res) => {
 	if (req.session.admin_id == undefined) {
 		res.redirect("/login");
 	} else {
-		res.render("admin/gallery");
+		res.render("admin/gallery", { page: "gallery" });
 	}
 });
 
@@ -41,7 +41,7 @@ router.get("/executives", (req, res) => {
 	if (req.session.admin_id == undefined) {
 		res.redirect("/login");
 	} else {
-		res.render("admin/executives");
+		res.render("admin/executives", { page: "executives" });
 	}
 });
 
