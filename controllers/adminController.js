@@ -85,10 +85,37 @@ exports.news = (req, res) => {
 
 // Function to be returned when Testimonies tab is clicked
 exports.testimonies = (req, res) => {
+	const testimonies = [
+		{
+			id: 1,
+			image: "https://randomuser.me/api/portraits/men/11.jpg",
+			name: "Name of person",
+			testimony:
+				"Lorem ipsum dolor, sit amet consectetur adipisicing elit Quae natus quisquam saepe explicabo. Id iste, minus quos autem quasi est!",
+		},
+		{
+			id: 2,
+			image: "https://randomuser.me/api/portraits/women/11.jpg",
+			name: "Name of person",
+			testimony:
+				"Lorem ipsum dolor, sit amet consectetur adipisicing elit Quae natus quisquam saepe explicabo. Id iste, minus quos autem quasi est!",
+		},
+		{
+			id: 3,
+			image: "https://randomuser.me/api/portraits/men/12.jpg",
+			name: "Name of person",
+			testimony:
+				"Lorem ipsum dolor, sit amet consectetur adipisicing elit Quae natus quisquam saepe explicabo. Id iste, minus quos autem quasi est!",
+		},
+	];
+
 	if (req.session.admin_id == undefined) {
 		res.redirect("/login");
 	} else {
-		res.render("admin/testimonies", { page: "testimonies" });
+		res.render("admin/testimonies", {
+			page: "testimonies",
+			testimonies: testimonies,
+		});
 	}
 };
 

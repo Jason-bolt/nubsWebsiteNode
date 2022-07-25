@@ -4,193 +4,110 @@
 	<div class="container text-center">
 		<h1 class="pt-5 pb-5">Testimonies</h1>
 
-		<div class="row ms-auto">
-			<div class="col-md-6 m-auto">
-				<div id="testimonies" class="carousel slide" data-bs-ride="carousel">
-					<div class="carousel-inner shadow">
-						<div class="carousel-item active">
-							<div class="card">
-								<div class="card-body">
-									<div class="text-center">
-										<img
-											src="https://randomuser.me/api/portraits/men/11.jpg"
-											alt="executive"
-											class="rounded-circle"
-										/>
-										<h5 class="my-2">Name of person</h5>
-										<p>
-											Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-											Quae natus quisquam saepe explicabo. Id iste, minus quos
-											autem quasi est!
-										</p>
-									</div>
-									<div class="mt-4">
-										<button
-											class="btn btn-nubsBlue rounded-pill px-3 py-1"
-											data-bs-toggle="modal"
-											data-bs-target="#editTestimony"
-										>
-											<i class="bi bi-pencil"></i> Edit
-										</button>
-										<form action="delete" method="POST" class="d-inline">
-											<button class="btn btn-danger rounded-pill py-1">
-												<i class="bi bi-trash"></i> Delete
-											</button>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
+		<!-- Add testimony button -->
+		<section class="p-sm-5">
+			<div class="container text-center">
+				<button
+					class="btn btn-nubsBlue"
+					data-bs-toggle="modal"
+					data-bs-target="#addTestimony"
+				>
+					Add Testimony <i class="bi bi-plus-lg"></i>
+				</button>
+			</div>
+		</section>
 
-						<!-- Edit Testimony Modal -->
-						<div class="modal fade" id="editTestimony" tabindex="-1">
-							<div class="modal-dialog modal-fullscreen-md-down">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="my-0">Edit testimony</h5>
-										<button
-											type="button"
-											class="btn-close"
-											data-bs-dismiss="modal"
-											aria-label="Close"
-										></button>
-									</div>
-									<div class="modal-body">
-										<form action="" enctype="multipart/form-data">
-											<div class="form-group mb-3">
-												<label class="lead" for="image">Image</label>
-												<input type="file" class="form-control" />
-											</div>
-											<div class="form-group mb-3">
-												<label class="lead" for="name">Name</label>
-												<input type="text" class="form-control" />
-											</div>
-											<div class="form-group mb-3">
-												<label class="lead" for="testimony"
-													>Testimony message</label
-												>
-												<textarea
-													name="testimonyMessage"
-													id="testimonyMessage"
-													rows="7"
-													class="form-control"
-												></textarea>
-											</div>
-											<button class="btn btn-nubsBlue">Save changes</button>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
+		<!-- Pending approval button -->
+		<section class="pb-sm-5 p-3">
+			<div class="container text-center">
+				<a href="#pendingApprovals" class="text-secondary"
+					>Testimonies Pending Approvals <i class="bi bi-arrow-down"></i
+				></a>
+			</div>
+		</section>
 
-						<div class="carousel-item">
-							<div class="card">
-								<div class="card-body">
-									<div class="text-center">
-										<img
-											src="https://randomuser.me/api/portraits/women/11.jpg"
-											alt="executive"
-											class="rounded-circle"
-										/>
-										<h5 class="my-2">Name of person</h5>
-										<p>
-											Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-											Quae natus quisquam saepe explicabo. Id iste, minus quos
-											autem quasi est!
-										</p>
-									</div>
-									<div class="mt-4">
-										<button
-											class="btn btn-nubsBlue rounded-pill px-3 py-1"
-											id="editTestimony"
-										>
-											<i class="bi bi-pencil"></i> Edit
-										</button>
-										<form action="delete" method="POST" class="d-inline">
-											<button class="btn btn-danger rounded-pill py-1">
-												<i class="bi bi-trash"></i> Delete
-											</button>
-										</form>
-									</div>
-								</div>
-							</div>
+		<!-- Cards of testimonies -->
+		<div class="row g-4">
+			<% testimonies.forEach((testimony, index) => { %>
+			<div class="col-md-4">
+				<div class="card shadow">
+					<div class="card-body">
+						<div class="text-center">
+							<img
+								src="<%= testimony.image %>"
+								alt="executive"
+								class="rounded-circle"
+							/>
+							<h5 class="my-2"><%= testimony.name %></h5>
+							<p><%= testimony.testimony %></p>
 						</div>
-						<div class="carousel-item">
-							<div class="card">
-								<div class="card-body">
-									<div class="text-center">
-										<img
-											src="https://randomuser.me/api/portraits/men/12.jpg"
-											alt="executive"
-											class="rounded-circle"
-										/>
-										<h5 class="my-2">Name of person</h5>
-										<p>
-											Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-											Quae natus quisquam saepe explicabo. Id iste, minus quos
-											autem quasi est!
-										</p>
-									</div>
-									<div class="mt-4">
-										<button
-											class="btn btn-nubsBlue rounded-pill px-3 py-1"
-											id="editTestimony"
-										>
-											<i class="bi bi-pencil"></i> Edit
-										</button>
-										<form action="delete" method="POST" class="d-inline">
-											<button class="btn btn-danger rounded-pill py-1">
-												<i class="bi bi-trash"></i> Delete
-											</button>
-										</form>
-									</div>
-								</div>
-							</div>
+						<div class="mt-4">
+							<button
+								class="btn btn-nubsBlue rounded-pill px-3 py-1"
+								data-bs-toggle="modal"
+								data-bs-target="#editTestimony<%= testimony.id %> "
+							>
+								<i class="bi bi-pencil"></i> Edit
+							</button>
+							<form action="delete" method="POST" class="d-inline">
+								<button class="btn btn-danger rounded-pill py-1">
+									<i class="bi bi-trash"></i> Delete
+								</button>
+							</form>
 						</div>
+					</div>
+				</div>
 
-						<button
-							class="carousel-control-prev"
-							type="button"
-							data-bs-target="#testimonies"
-							data-bs-slide="prev"
-						>
-							<span
-								class="carousel-control-prev-icon"
-								aria-hidden="true"
-							></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button
-							class="carousel-control-next"
-							type="button"
-							data-bs-target="#testimonies"
-							data-bs-slide="next"
-						>
-							<span
-								class="carousel-control-next-icon"
-								aria-hidden="true"
-							></span>
-							<span class="visually-hidden">Next</span>
-						</button>
+				<!-- Edit Testimony Modal -->
+				<div
+					class="modal fade"
+					id="editTestimony<%= testimony.id %>"
+					tabindex="-1"
+				>
+					<div class="modal-dialog modal-fullscreen-md-down">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="my-0">Edit testimony</h5>
+								<button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="modal"
+									aria-label="Close"
+								></button>
+							</div>
+							<div class="modal-body">
+								<form action="" enctype="multipart/form-data">
+									<div class="form-group mb-3">
+										<label class="lead" for="image">Image</label>
+										<input type="file" class="form-control" />
+									</div>
+									<div class="form-group mb-3">
+										<label class="lead" for="name">Name</label>
+										<input type="text" class="form-control" />
+									</div>
+									<div class="form-group mb-3">
+										<label class="lead" for="testimony"
+											>Testimony message</label
+										>
+										<textarea
+											name="testimonyMessage"
+											id="testimonyMessage"
+											rows="7"
+											class="form-control"
+										></textarea>
+									</div>
+									<button class="btn btn-nubsBlue">Save changes</button>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			<% }) %>
 		</div>
 	</div>
 </section>
 
-<!-- Add testimony button -->
-<section class="p-sm-5">
-	<div class="container text-center">
-		<button
-			class="btn btn-nubsBlue"
-			data-bs-toggle="modal"
-			data-bs-target="#addTestimony"
-		>
-			Add Testimony <i class="bi bi-plus-lg"></i>
-		</button>
-	</div>
-</section>
 <!-- Edit Testimony Modal -->
 <div class="modal fade" id="addTestimony" tabindex="-1">
 	<div class="modal-dialog">
