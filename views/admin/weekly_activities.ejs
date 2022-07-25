@@ -62,89 +62,47 @@
 								</div>
 								<div class="form-group mt-3">
 									<label for="start_time" class="lead"> Start Time </label>
-									<select
-										name="start_time"
-										id="start_time"
-										class="form-control"
-									>
-										<option value="1">6:30am</option>
-										<option value="1">7:00am</option>
-										<option value="1">7:30am</option>
-										<option value="1">8:00am</option>
-										<option value="1">8:30am</option>
-										<option value="1">9:00am</option>
-										<option value="1">9:30am</option>
-										<option value="1">10:00am</option>
-										<option value="1">10:30am</option>
-										<option value="1">11:00am</option>
-										<option value="1">11:30am</option>
-										<option value="1">12:00pm</option>
-										<option value="1">12:30pm</option>
-										<option value="1">1:00pm</option>
-										<option value="1">1:30pm</option>
-										<option value="1">2:00pm</option>
-										<option value="1">2:30pm</option>
-										<option value="1">3:00pm</option>
-										<option value="1">3:30pm</option>
-										<option value="1">4:00pm</option>
-										<option value="1">4:30pm</option>
-										<option value="1">5:00pm</option>
-										<option value="1">5:30pm</option>
-										<option value="1">6:00pm</option>
-										<option value="1">6:30pm</option>
-										<option value="1">7:00pm</option>
-										<option value="1">7:30pm</option>
-										<option value="1">8:00pm</option>
-										<option value="1">8:30pm</option>
-										<option value="1">9:00pm</option>
-										<option value="1">9:30pm</option>
-										<option value="1">10:00pm</option>
-										<option value="1">10:30pm</option>
-										<option value="1">11:00pm</option>
-										<option value="1">11:30pm</option>
-										<option value="1">12:00am</option>
-									</select>
+									<div class="d-flex">
+										<input
+											type="number"
+											class="form-control me-4"
+											name="start_time"
+											id="start_time"
+											min="1"
+											max="12"
+										/>
+
+										<select
+											name="stime_zone"
+											id="stime_zone"
+											class="form-control"
+										>
+											<option value="am">am</option>
+											<option value="pm">pm</option>
+										</select>
+									</div>
 								</div>
 								<div class="form-group mt-3">
-									<label for="start_time" class="lead"> End Time </label>
-									<select name="end_time" id="end_time" class="form-control">
-										<option value="1">6:30am</option>
-										<option value="1">7:00am</option>
-										<option value="1">7:30am</option>
-										<option value="1">8:00am</option>
-										<option value="1">8:30am</option>
-										<option value="1">9:00am</option>
-										<option value="1">9:30am</option>
-										<option value="1">10:00am</option>
-										<option value="1">10:30am</option>
-										<option value="1">11:00am</option>
-										<option value="1">11:30am</option>
-										<option value="1">12:00pm</option>
-										<option value="1">12:30pm</option>
-										<option value="1">1:00pm</option>
-										<option value="1">1:30pm</option>
-										<option value="1">2:00pm</option>
-										<option value="1">2:30pm</option>
-										<option value="1">3:00pm</option>
-										<option value="1">3:30pm</option>
-										<option value="1">4:00pm</option>
-										<option value="1">4:30pm</option>
-										<option value="1">5:00pm</option>
-										<option value="1">5:30pm</option>
-										<option value="1">6:00pm</option>
-										<option value="1">6:30pm</option>
-										<option value="1">7:00pm</option>
-										<option value="1">7:30pm</option>
-										<option value="1">8:00pm</option>
-										<option value="1">8:30pm</option>
-										<option value="1">9:00pm</option>
-										<option value="1">9:30pm</option>
-										<option value="1">10:00pm</option>
-										<option value="1">10:30pm</option>
-										<option value="1">11:00pm</option>
-										<option value="1">11:30pm</option>
-										<option value="1">12:00am</option>
-									</select>
+									<label for="end_time" class="lead"> End Time </label>
+									<div class="d-flex">
+										<input
+											type="number"
+											class="form-control me-4"
+											name="end_time"
+											id="end_time"
+											min="1"
+											max="12"
+										/>
+
+										<select
+											name="etime_zone"
+											id="etime_zone"
+											class="form-control"
+										>
+											<option value="am">am</option>
+											<option value="pm">pm</option>
+										</select>
+									</div>
 								</div>
 								<div class="form-group mt-3">
 									<label for="location" class="lead"> Location </label>
