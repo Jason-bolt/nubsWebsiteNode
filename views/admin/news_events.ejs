@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="row">
 			<% events.forEach(event => { %>
-			<div class="mt-5">
+			<div class="mb-5">
 				<img src="/images/<%= event.image %>" alt="1" class="img-fluid" />
 
 				<div class="card-body">
@@ -19,14 +19,14 @@
 				<div class="card-footer bg-white">
 					<button
 						type="button"
-						class="btn btn-secondary"
+						class="btn btn-secondary rounded-pill"
 						data-bs-toggle="modal"
 						data-bs-target="#editEvent<%= event.id %>"
 					>
 						Edit <i class="bi bi-pen"></i>
 					</button>
 
-					<a href="#" class="btn btn-danger">
+					<a href="#" class="btn btn-danger rounded-pill">
 						Delete <i class="bi bi-trash"></i>
 					</a>
 				</div>

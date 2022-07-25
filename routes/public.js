@@ -67,6 +67,10 @@ router.get("/news-events", (req, res) => {
 	res.render("news-events", { page: "news-events" });
 });
 
+router.get("/news-events/:event_name", (req, res) => {
+	res.send(req.params);
+});
+
 router.get("/gallery", (req, res) => {
 	res.render("gallery", { page: "gallery" });
 });
