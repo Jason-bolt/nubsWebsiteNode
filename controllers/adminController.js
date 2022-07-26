@@ -115,6 +115,7 @@ exports.testimonies = (req, res) => {
 		res.render("admin/testimonies", {
 			page: "testimonies",
 			testimonies: testimonies,
+			pendingTestimonies: testimonies,
 		});
 	}
 };
