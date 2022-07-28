@@ -129,3 +129,9 @@ exports.donate = (req, res) => {
 		res.send("Admin donate page");
 	}
 };
+
+// Edit activity based on id
+exports.edit_activity = (req, res) => {
+	console.log(req.body);
+	res.send("Testing");
+};

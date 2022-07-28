@@ -17,6 +17,8 @@ router.get("/executives", adminController.executives);
 
 router.get("/donate", adminController.donate);
 
+router.post("/edit_activity/:id", adminController.edit_activity);
+
 router.post("/logout", (req, res) => {
 	req.session.destroy();
 	res.redirect("/login");
