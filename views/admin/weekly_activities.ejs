@@ -15,14 +15,15 @@
 						class="card-img-top"
 					/>
 					<div class="card-body">
-						<div class="card-title my-3 h3"><%= activity.service %></div>
+						<div class="card-title text-capitalize my-3 h3">
+							<%= activity.service %>
+						</div>
 						<div class="card-text">
-							<p class="mb-0"><strong>Day:</strong> <%= activity.day %></p>
-							<p class="mb-0">
-								<strong>Time:</strong> <%= activity.start_time %> to <%=
-								activity.end_time %>
+							<p class="mb-0 text-capitalize">
+								<strong>Day:</strong> <%= activity.day %>
 							</p>
-							<p class="mb-0">
+							<p class="mb-0"><strong>Time:</strong> <%= activity.time %></p>
+							<p class="mb-0 text-capitalize">
 								<strong>Location:</strong> <%= activity.location %>
 							</p>
 						</div>
