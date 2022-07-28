@@ -59,52 +59,25 @@
 								<div class="form-group">
 									<label for="Image" class="lead"> Image </label>
 
-									<input type="file" accept="image/*" class="form-control" />
+									<input
+										type="file"
+										name="image"
+										accept="image/*"
+										class="form-control"
+									/>
 								</div>
 								<div class="form-group mt-3">
-									<label for="start_time" class="lead"> Start Time </label>
-									<div class="d-flex">
+									<label for="start_time" class="lead"> Time </label>
+									<div class="form-group">
+										<small class="text-secondary">Start time : End time</small>
 										<input
-											type="number"
-											class="form-control me-4"
-											name="start_time"
-											id="start_time"
-											min="1"
-											max="12"
-										/>
-
-										<select
-											name="stime_zone"
-											id="stime_zone"
+											type="text"
 											class="form-control"
-										>
-											<option value="am">am</option>
-											<option value="pm">pm</option>
-										</select>
+											placeholder="e.g: 6:30pm to 8:00pm"
+										/>
 									</div>
 								</div>
-								<div class="form-group mt-3">
-									<label for="end_time" class="lead"> End Time </label>
-									<div class="d-flex">
-										<input
-											type="number"
-											class="form-control me-4"
-											name="end_time"
-											id="end_time"
-											min="1"
-											max="12"
-										/>
 
-										<select
-											name="etime_zone"
-											id="etime_zone"
-											class="form-control"
-										>
-											<option value="am">am</option>
-											<option value="pm">pm</option>
-										</select>
-									</div>
-								</div>
 								<div class="form-group mt-3">
 									<label for="location" class="lead"> Location </label>
 									<select name="location" id="location" class="form-control">
@@ -116,8 +89,8 @@
 									</select>
 								</div>
 
-								<button class="btn btn-nubsBlue mt-3 px-3 rounded-pill">
-									Save
+								<button class="btn btn-nubsBlue mt-3 px-3 rounded">
+									Save <i class="bi bi-save"></i>
 								</button>
 							</form>
 						</div>
