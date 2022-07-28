@@ -10,7 +10,7 @@
 			<div class="col-sm-6 col-lg-4">
 				<div class="card shadow">
 					<img
-						src="/images/<%= activity.image %> "
+						src="<%= activity.image != null ? activity.image : "/images/nubs_logo.png" %>"
 						alt="sunday"
 						class="card-img-top"
 					/>
@@ -55,7 +55,7 @@
 							></button>
 						</div>
 						<div class="modal-body">
-							<form action="#" enctype="multipart/form-data">
+							<form action="/edit_activity/<%= activity.id %> " method="POST" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="Image" class="lead"> Image </label>
 
