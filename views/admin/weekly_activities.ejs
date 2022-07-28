@@ -74,6 +74,7 @@
 											type="text"
 											class="form-control"
 											placeholder="e.g: 6:30pm to 8:00pm"
+											value="<%= activity.time %> "
 										/>
 									</div>
 								</div>
@@ -81,11 +82,11 @@
 								<div class="form-group mt-3">
 									<label for="location" class="lead"> Location </label>
 									<select name="location" id="location" class="form-control">
-										<option value="1">Assembly Hall</option>
-										<option value="1">CRT (Top)</option>
-										<option value="1">CRT (Bottom)</option>
-										<option value="1">New Life Baptist Church</option>
-										<option value="1">Casford Field</option>
+										<option value="assembly hall" <%= activity.location == "assembly hall" ? 'selected' : '' %>>Assembly Hall</option>
+										<option value="crt (top)" <%= activity.location == "crt (top)" ? 'selected' : '' %>>CRT (Top)</option>
+										<option value="crt (bottom)" <%= activity.location == "crt (bottom)" ? 'selected' : '' %>>CRT (Bottom)</option>
+										<option value="new life baptist church" <%= activity.location == "new life baptist church" ? 'selected' : '' %>>New Life Baptist Church</option>
+										<option value="casford field" <%= activity.location == "casford field" ? 'selected' : '' %>>Casford Field</option>
 									</select>
 								</div>
 
